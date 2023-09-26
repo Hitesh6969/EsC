@@ -51,11 +51,11 @@ int haDoppie(const char *stringa)
         {
             if (tolower(stringa[i]) == tolower(stringa[j]))
             {
-                return 1; // Ha una doppia
+                return 1;
             }
         }
     }
-    return 0; // Non ha doppie
+    return 0;
 }
 
 int main(int argc, char *argv[])
