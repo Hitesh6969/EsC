@@ -1,1 +1,2 @@
-La Stringa più lunga ha 28 caratteri ed è : TheBindingOfIsaacAfterBirth+
+La Stringa più lunga ha 29 caratteri ed è : TheBindingOfIsaacAfterBirth++
+La String più corta ha 13 caratteri ed è: Subnautica69@

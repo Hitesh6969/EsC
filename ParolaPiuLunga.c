@@ -6,8 +6,8 @@
 int main()
 {
     FILE*fp,*fpOut;
-    char stringa[DIM] ,strSalvate[DIM][DIM], strFinale[DIM];
-    int indice = 0, lunghezzaStr = 0;
+    char stringa[DIM] ,strSalvate[DIM][DIM], strFinale[DIM], strCorta[DIM];
+    int indice = 0, lunghezzaStr = 0, lunghezzaStrCorta = 0;
     fp = fopen("F1.txt","r");
     if(fp == NULL)
     {
@@ -28,7 +28,12 @@ int main()
             {   
                 lunghezzaStr = strlen(strSalvate[i+1]);
                 strcpy(strFinale, strSalvate[i+1]);
-            }             
+            }
+            if(strlen(strSalvate[0]) > strlen(strSalvate[i+1]))
+            {
+                lunghezzaStrCorta = strlen(strSalvate[i]);
+                strcpy(strCorta,strSalvate[i]);
+            }            
         }
         fclose(fp);   
     }
@@ -40,6 +45,6 @@ int main()
     }
     else
     {
-        fprintf(fpOut,"La Stringa più lunga ha %d caratteri ed è : %s", lunghezzaStr, strFinale);
+        fprintf(fpOut,"La Stringa più lunga ha %d caratteri ed è : %s\nLa String più corta ha %d caratteri ed è: %s", lunghezzaStr, strFinale,lunghezzaStrCorta,strCorta);
     }
 }
