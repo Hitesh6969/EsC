@@ -29,7 +29,7 @@ int main(int argc,char** argv)
     connect(socketfd,(struct sockaddr*)&servizio,sizeof(servizio));
     
     printf("Inserisci la stringa\n");
-    scanf("%s",&str1);
+    scanf("%s",str1);
     write(socketfd,str1,sizeof(str1));
     
     close(socketfd);
