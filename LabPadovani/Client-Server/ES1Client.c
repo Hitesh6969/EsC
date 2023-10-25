@@ -20,7 +20,8 @@ int main(int argc,char* argv[])
     // 1 - DICHIARO VARIABILI NECESSARIE PER IL SOCKET
 
     struct sockaddr_in servizio;
-    int socketfd;
+    int socketfd,nread;
+    char buff[1];
 
     // 2 - ASSEGNAZIONE DELLA FAMIGLIA, IP e PORTA AL SOCKET DEL CLIENT
 
@@ -38,7 +39,12 @@ int main(int argc,char* argv[])
 
     // 5 - AREA DI LAVORO
 
-    write(socketfd,argv[2],strlen(argv[2]));
+    write(socketfd,argv[1],strlen(argv[1]));
+
+    while(nread = read(socketfd,buff,sizeof(buff)) > 0)
+    {
+        write(1,buff,nread);
+    }
 
     // 6 - QUANDO FINITO DI SCRIVERE SUL SOCKET LO CHIUDO
 
