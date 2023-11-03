@@ -11,30 +11,23 @@
 #include <ctype.h>
 #include <unistd.h>
 #include <arpa/inet.h>
-
 #define DIM 512
-#define Server_Port 40000
 
 int main(int argc, char*argv[])
 {
-    struct sockaddr_in server;
-    int socketfd, fromlen = sizeof(server);
-    char str[DIM];
-
-    server.sin_family = AF_INET;
-    server.sin_addr.s_addr = inet_addr(argv[1]);
-    server.sin_port = htons(atoi(argv[2]));
+    struct sockaddr_in servizio;
+    int socketfd, fromlen = sizeof(servizio);
+    
+    servizio.sin_family = AF_INET;
+    servizio.sin_addr.s_addr = inet_addr(argv[1]);
+    servizio.sin_port = htons(atoi(argv[2]));
 
     socketfd = socket(AF_INET,SOCK_STREAM,0);
 
-    connect(socketfd,(struct sockaddr*)&server, fromlen);
+    connect(socketfd,(struct sockaddr*)&servizio,fromlen);
 
     write(socketfd,argv[3],sizeof(argv[3]));
 
-    read(socketfd,str,sizeof(str));
-
-    printf("%s",str);
-
-    close(socketfd);
+    
 
 }
